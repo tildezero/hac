@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 	"path"
 
@@ -60,6 +61,7 @@ func initConfig() {
 
 	viper.AutomaticEnv()
 
-	err := viper.ReadInConfig()
-	cobra.CheckErr(err)
+	if err := viper.ReadInConfig(); err == nil {
+		fmt.Println("Using config file")
+	}
 }
