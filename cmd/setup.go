@@ -20,6 +20,7 @@ var setupCmd = &cobra.Command{
 The HAC CLI config file is located at $HOME/.hac.yaml and could also be manually configured with the relevant values`,
 	Run: func(cmd *cobra.Command, args []string) {
 		uhd, err := os.UserHomeDir()
+		viper.SafeWriteConfigAs(path.Join(uhd, ".hac.yaml"))
 		cobra.CheckErr(err)
 		overwrite := false
 		overwrite_question := &survey.Confirm{

@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"os"
+	"path"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -54,7 +55,7 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".hac")
-		viper.SafeWriteConfig()
+		viper.SafeWriteConfigAs(path.Join(home, ".hac.yaml"))
 	}
 
 	viper.AutomaticEnv()
