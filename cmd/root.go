@@ -54,6 +54,7 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".hac")
+		viper.SafeWriteConfig()
 	}
 
 	viper.AutomaticEnv()
