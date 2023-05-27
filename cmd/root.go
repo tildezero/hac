@@ -53,9 +53,10 @@ func initConfig() {
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
 
-		viper.AddConfigPath(home)
-		viper.SetConfigType("yaml")
-		viper.SetConfigName(".hac")
+		// viper.AddConfigPath(home)
+		// viper.SetConfigType("yaml")
+		// viper.SetConfigName(".hac")
+		viper.SetConfigFile(path.Join(home, ".hac.yaml"))
 		viper.SafeWriteConfigAs(path.Join(home, ".hac.yaml"))
 	}
 
